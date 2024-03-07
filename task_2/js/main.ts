@@ -83,4 +83,19 @@ function isDirector(employee: Director | Teacher): employee is Director {
   // Example usage
   console.log(executeWork(createEmployee(200))); // Expected to call workTeacherTasks and log "Getting to work"
   console.log(executeWork(createEmployee(1000))); // Expected to call workDirectorTasks and log "Getting to director tasks"
-  
+
+// Define the String literal type named Subjects
+type Subjects = 'Math' | 'History';
+
+// Write the function named teachClass
+function teachClass(todayClass: Subjects): string {
+  if (todayClass === 'Math') {
+    return 'Teaching Math';
+  } else if (todayClass === 'History') {
+    return 'Teaching History';
+  }
+}
+
+// Usage examples
+console.log(teachClass('Math'));    // Expected output: Teaching Math
+console.log(teachClass('History')); // Expected output: Teaching History
