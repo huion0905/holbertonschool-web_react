@@ -64,4 +64,23 @@ interface DirectorInterface {
   console.log(createEmployee(200)); // Creates and displays a Teacher instance
   console.log(createEmployee(1000)); // Creates and displays a Director instance
   console.log(createEmployee('$500')); // Creates and displays a Director instance
+
+
+// Type guard function to check if an employee is a Director
+function isDirector(employee: Director | Teacher): employee is Director {
+    return (employee as Director).workDirectorTasks !== undefined;
+  }
+  
+  // Function to execute the work of an employee based on their role
+  function executeWork(employee: Director | Teacher): string {
+    if (isDirector(employee)) {
+      return employee.workDirectorTasks();
+    } else {
+      return employee.workTeacherTasks();
+    }
+  }
+  
+  // Example usage
+  console.log(executeWork(createEmployee(200))); // Expected to call workTeacherTasks and log "Getting to work"
+  console.log(executeWork(createEmployee(1000))); // Expected to call workDirectorTasks and log "Getting to director tasks"
   
