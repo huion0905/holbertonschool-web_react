@@ -14,21 +14,20 @@ module.exports = {
         use: ['style-loader', 'css-loader'],
       },
       {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        test: /\.(png|svg|jpg|jpeg|gif|webp)$/i,
         type: 'asset/resource',
         generator: {
           filename: 'assets/images/[hash][ext][query]'
         }
       },
       {
-        test: /\.(jpg|png)$/,
+        test: /\.(jpg|png|webp)$/,
         use: {
           loader: 'image-webpack-loader',
           options: {
             mozjpeg: {
               progressive: true,
             },
-            // other options...
           },
         },
       }
