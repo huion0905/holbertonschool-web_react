@@ -4,36 +4,30 @@ module.exports = {
   mode: 'production',
   entry: './js/dashboard_main.js',
   output: {
+    filename: 'bundle.js',
     path: path.resolve(__dirname, 'public'),
-    filename: 'bundle.js'
   },
   module: {
     rules: [
       {
-        test: /\.css$/i,
+        test: /\.css$/,
         use: ['style-loader', 'css-loader'],
       },
       {
-        test: /\.(png|svg|jpg|jpeg|gif|webp)$/i,
-        type: 'asset/resource',
-        generator: {
-          filename: 'assets/images/[hash][ext][query]'
-        }
-      },
-      {
-        test: /\.(jpg|png|webp)$/,
-        use: {
-          loader: 'image-webpack-loader',
-          options: {
-            mozjpeg: {
-              progressive: true,
+        test: /\.(png|jpg|jpeg|gif)$/i,
+        use: [
+          'file-loader', // Use file-loader for basic image handling
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              mozjpeg: {
+                progressive: true,
+                quality: 65,
+              },
             },
           },
-        },
-      }
+        ],
+      },
     ],
   },
-  performance: {
-    hints: false
-  }
 };
