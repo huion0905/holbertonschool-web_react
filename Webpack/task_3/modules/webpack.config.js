@@ -8,7 +8,7 @@ module.exports = {
     path: path.resolve(__dirname, 'public'),
   },
   devServer: {
-    static: './public' //  Directory where the content will be served from
+    static: './public', //  Directory where the content will be served from
     port: 8564, // Execution port for the development server
     open: true, // Automatically open the browser
   },
