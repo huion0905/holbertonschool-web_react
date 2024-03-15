@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import _ from 'lodash';
-import '../css/body.css';
+import '../modules/body/body.css';
 
 let count = 0;
 $('body').append('<button>Click me</button>');
