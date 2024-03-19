@@ -35,6 +35,11 @@ h1 {
   border-top: solid 2px #e11d48;
 }
 
+.App-login {
+  text-align: left;
+  margin-left: 20px;
+}
+
 .App-footer {
   background-color: #fff;
   padding: 20px;

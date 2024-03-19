@@ -13,7 +13,7 @@ function App() {
         <div className="Header-Line"></div>
       </header>
       <div className="App-body">
-        <p>Login to access the full dashboard</p>
+        <p className="App-login">Login to access the full dashboard</p>
       </div>
       <footer className="App-footer">
         <p>Copyright 2020 - holberton School</p>
