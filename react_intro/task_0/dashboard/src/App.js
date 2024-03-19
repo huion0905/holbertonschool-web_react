@@ -10,6 +10,7 @@ function App() {
         <img src={logo} className="App-logo" alt="Holberton logo" />
         <h1>School dashboard</h1>
         </div>
+        <div className="Header-Line"></div>
       </header>
       <div className="App-body">
         <p>Login to access the full dashboard</p>

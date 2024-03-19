@@ -21,12 +21,22 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  position: relative;
 }
 
 .Header-content {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.Header-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #e11d48;
 }
 
 .App-body {
