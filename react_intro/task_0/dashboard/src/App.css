@@ -9,10 +9,21 @@
   margin-bottom: 20px;
 }
 
+h1 {
+  color: #e11d48; /* Color rojo para el título */
+  font-size: 2.5rem; /* Aumenta el tamaño del título */
+}
+
 .App-header {
   background-color: #fff;
-  padding: 20px;
+  padding: 20px 0;
   border-bottom: solid 2px #e11d48;
+}
+
+.Header-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .App-body {
