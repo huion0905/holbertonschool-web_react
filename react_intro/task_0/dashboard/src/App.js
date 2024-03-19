@@ -1,13 +1,15 @@
 import React from 'react';
 import './App.css';
-import logo from './holberton_logo.png'; // Make sure the logo path is correct
+import logo from './holberton_logo.png';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <div className="Header-content">
         <img src={logo} className="App-logo" alt="Holberton logo" />
         <h1>School dashboard</h1>
+        </div>
       </header>
       <div className="App-body">
         <p>Login to access the full dashboard</p>
