@@ -10,11 +10,13 @@
 }
 
 h1 {
-  color: #e11d48; /* Color rojo para el título */
-  font-size: 2.5rem; /* Aumenta el tamaño del título */
+  color: #e11d48;
+  font-size: 2.5rem;
 }
 
 .App-header {
+  text-align: left;
+  width: 100%;
   background-color: #fff;
   padding: 20px 0;
   border-bottom: solid 2px #e11d48;
