@@ -3,6 +3,7 @@ import React from 'react';
 import './App.css';
 import logo from './holberton_logo.png';
 import { getFullYear, getFooterCopy } from './utils';
+import Notifications from './Notifications'; 
 
 function App() {
   return (
