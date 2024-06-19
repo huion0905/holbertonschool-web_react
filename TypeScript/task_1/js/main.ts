@@ -1,4 +1,4 @@
-// We define the Teacher interface
+// Definimos la interfaz Teacher
 interface Teacher {
     readonly firstName: string;
     readonly lastName: string;
@@ -8,12 +8,12 @@ interface Teacher {
     [propName: string]: any;
   }
   
-  // We define the Directors interface extending Teacher
+  // Definimos la interfaz Directors que extiende Teacher
   interface Directors extends Teacher {
     numberOfReports: number;
   }
   
-  // We create an example of a Directors object
+  // Creamos un ejemplo de un objeto Directors
   const director1: Directors = {
     firstName: 'John',
     lastName: 'Doe',
@@ -24,53 +24,15 @@ interface Teacher {
   
   console.log(director1);
   
-  // Function for rendering the table with the teacher's data
-  function renderTeacherTable(teacher: Teacher): void {
-    // Create table elements
-    const table = document.createElement('table');
-    const thead = document.createElement('thead');
-    const tbody = document.createElement('tbody');
-  
-    // Create table headers
-    const headers = ['First Name', 'Last Name', 'Full Time Employee', 'Years of Experience', 'Location', 'Contract', 'Number of Reports'];
-    const headerRow = document.createElement('tr');
-    headers.forEach(headerText => {
-      const header = document.createElement('th');
-      header.textContent = headerText;
-      headerRow.appendChild(header);
-    });
-    thead.appendChild(headerRow);
-  
-    // Create teacher data row
-    const dataRow = document.createElement('tr');
-    dataRow.appendChild(createCell(teacher.firstName));
-    dataRow.appendChild(createCell(teacher.lastName));
-    dataRow.appendChild(createCell(teacher.fullTimeEmployee.toString()));
-    dataRow.appendChild(createCell(teacher.yearsOfExperience?.toString() || 'N/A'));
-    dataRow.appendChild(createCell(teacher.location));
-    dataRow.appendChild(createCell(teacher.contract.toString()));
-    if ((teacher as Directors).numberOfReports !== undefined) {
-      dataRow.appendChild(createCell((teacher as Directors).numberOfReports.toString()));
-    } else {
-      dataRow.appendChild(createCell('N/A'));
-    }
-  
-    tbody.appendChild(dataRow);
-  
-    // Add thead and tbody to the table
-    table.appendChild(thead);
-    table.appendChild(tbody);
-  
-    // Add the table to the body of the document
-    document.body.appendChild(table);
+  // Definir la interfaz para la función printTeacher
+  interface printTeacherFunction {
+    (firstName: string, lastName: string): string;
   }
   
-  // Helper function to create table cells
-  function createCell(text: string): HTMLTableCellElement {
-    const cell = document.createElement('td');
-    cell.textContent = text;
-    return cell;
-  }
+  // Implementar la función printTeacher
+  const printTeacher: printTeacherFunction = (firstName, lastName) => {
+    return `${firstName.charAt(0)}. ${lastName}`;
+  };
   
-  // We call the function to render the table with the director1 object
-  renderTeacherTable(director1);
+  // Ejemplo de uso de la función printTeacher
+  console.log(printTeacher("John", "Doe")); 
