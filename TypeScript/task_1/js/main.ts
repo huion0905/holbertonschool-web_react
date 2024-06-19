@@ -74,4 +74,3 @@ interface Teacher {
   
   // We call the function to render the table with the director1 object
   renderTeacherTable(director1);
-  
