@@ -18,4 +18,3 @@ interface Teacher {
   };
   
   console.log(teacher3);
-  
