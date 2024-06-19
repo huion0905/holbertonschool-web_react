@@ -8,26 +8,31 @@ interface Teacher {
     [propName: string]: any;
   }
   
-  // We create an example of a Teacher object
-  const teacher3: Teacher = {
+  // We define the Directors interface extending Teacher
+  interface Directors extends Teacher {
+    numberOfReports: number;
+  }
+  
+  // We create an example of a Directors object
+  const director1: Directors = {
     firstName: 'John',
     lastName: 'Doe',
-    fullTimeEmployee: false,
     location: 'London',
-    contract: false,
+    fullTimeEmployee: true,
+    numberOfReports: 17,
   };
   
-  console.log(teacher3);
+  console.log(director1);
   
   // Function for rendering the table with the teacher's data
   function renderTeacherTable(teacher: Teacher): void {
-    // Crear elementos de la tabla
+    // Create table elements
     const table = document.createElement('table');
     const thead = document.createElement('thead');
     const tbody = document.createElement('tbody');
   
     // Create table headers
-    const headers = ['First Name', 'Last Name', 'Full Time Employee', 'Years of Experience', 'Location', 'Contract'];
+    const headers = ['First Name', 'Last Name', 'Full Time Employee', 'Years of Experience', 'Location', 'Contract', 'Number of Reports'];
     const headerRow = document.createElement('tr');
     headers.forEach(headerText => {
       const header = document.createElement('th');
@@ -44,6 +49,11 @@ interface Teacher {
     dataRow.appendChild(createCell(teacher.yearsOfExperience?.toString() || 'N/A'));
     dataRow.appendChild(createCell(teacher.location));
     dataRow.appendChild(createCell(teacher.contract.toString()));
+    if ((teacher as Directors).numberOfReports !== undefined) {
+      dataRow.appendChild(createCell((teacher as Directors).numberOfReports.toString()));
+    } else {
+      dataRow.appendChild(createCell('N/A'));
+    }
   
     tbody.appendChild(dataRow);
   
@@ -62,5 +72,6 @@ interface Teacher {
     return cell;
   }
   
-  // We call the function to render the table with the object teacher3
-  renderTeacherTable(teacher3);
+  // We call the function to render the table with the director1 object
+  renderTeacherTable(director1);
+  
