@@ -8,7 +8,7 @@ interface Teacher {
     [propName: string]: any;
   }
   
-  // We create an example of a Teacher object
+  // Create an example
   const teacher3: Teacher = {
     firstName: 'John',
     lastName: 'Doe',
@@ -18,3 +18,4 @@ interface Teacher {
   };
   
   console.log(teacher3);
+ 
