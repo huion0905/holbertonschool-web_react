@@ -1,4 +1,4 @@
-// Definimos la interfaz Teacher
+// We define the Teacher interface
 interface Teacher {
     readonly firstName: string;
     readonly lastName: string;
@@ -8,12 +8,12 @@ interface Teacher {
     [propName: string]: any;
   }
   
-  // Definimos la interfaz Directors que extiende Teacher
+  // We define the Directors interface extending Teacher
   interface Directors extends Teacher {
     numberOfReports: number;
   }
   
-  // Creamos un ejemplo de un objeto Directors
+  // We create an example of a Directors object
   const director1: Directors = {
     firstName: 'John',
     lastName: 'Doe',
@@ -24,12 +24,12 @@ interface Teacher {
   
   console.log(director1);
   
-  // Definir la interfaz para la función printTeacher
+  // Defining the interface for the printTeacher function
   interface printTeacherFunction {
     (firstName: string, lastName: string): string;
   }
   
-  // Implementar la función printTeacher
+  // Implementing the printTeacher function
   const printTeacher: printTeacherFunction = (firstName, lastName) => {
     return `${firstName.charAt(0)}. ${lastName}`;
   };
