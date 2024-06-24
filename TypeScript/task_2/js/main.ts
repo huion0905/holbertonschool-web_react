@@ -1,58 +1,60 @@
-// Create the DirectorInterface
-interface DirectorInterface {
-    workFromHome(): string;
-    getCoffeeBreak(): string;
-    workDirectorTasks(): string;
+interface Director {
+  workFromHome(): string;
+  getCoffeeBreak(): string;
+  workDirectorTasks(): string;
+}
+
+interface Teacher {
+  workFromHome(): string;
+  getCoffeeBreak(): string;
+  workTeacherTasks(): string;
+}
+
+class DirectorImpl implements Director {
+  workFromHome(): string {
+    return "Working from home";
   }
-  
-  // Create the TeacherInterface
-  interface TeacherInterface {
-    workFromHome(): string;
-    getCoffeeBreak(): string;
-    workTeacherTasks(): string;
+  getCoffeeBreak(): string {
+    return "Getting a coffee break";
   }
-  
-  // Create the Director class that implements DirectorInterface
-  class Director implements DirectorInterface {
-    workFromHome(): string {
-      return 'Working from home';
-    }
-  
-    getCoffeeBreak(): string {
-      return 'Getting a coffee break';
-    }
-  
-    workDirectorTasks(): string {
-      return 'Getting to director tasks';
-    }
+  workDirectorTasks(): string {
+    return "Getting to director tasks";
   }
-  
-  // Create the Teacher class that implements TeacherInterface
-  class Teacher implements TeacherInterface {
-    workFromHome(): string {
-      return 'Cannot work from home';
-    }
-  
-    getCoffeeBreak(): string {
-      return 'Cannot have a break';
-    }
-  
-    workTeacherTasks(): string {
-      return 'Getting to work';
-    }
+}
+
+class TeacherImpl implements Teacher {
+  workFromHome(): string {
+    return "Cannot work from home";
   }
-  
-  // Create the createEmployee function
-  function createEmployee(salary: number | string): Director | Teacher {
-    if (typeof salary === 'number' && salary < 500) {
-      return new Teacher();
-    } else {
-      return new Director();
-    }
+  getCoffeeBreak(): string {
+    return "Cannot have a break";
   }
-  
-  // Testing the createEmployee function
-  console.log(createEmployee(200));
-  console.log(createEmployee(1000));
-  console.log(createEmployee('$500'));
+  workTeacherTasks(): string {
+    return "Getting to work";
+  }
+}
+
+function createEmployee(salary: number | string): Director | Teacher {
+  if (typeof salary === 'number' && salary < 500) {
+    return new TeacherImpl();
+  } else {
+    return new DirectorImpl();
+  }
+}
+
+function isDirector(employee: Director | Teacher): employee is Director {
+  return (employee as Director).workDirectorTasks !== undefined;
+}
+
+function executeWork(employee: Director | Teacher): void {
+  if (isDirector(employee)) {
+    console.log(employee.workDirectorTasks());
+  } else {
+    console.log((employee as Teacher).workTeacherTasks());
+  }
+}
+
+// Test cases
+executeWork(createEmployee(200));
+executeWork(createEmployee(1000));
   
