@@ -7,69 +7,49 @@ module.exports = {
   entry: {
     header: './modules/header/header.js',
     body: './modules/body/body.js',
-    footer: './modules/footer/footer.js'
+    footer: './modules/footer/footer.js',
   },
+  devtool: 'inline-source-map',
   output: {
     filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'public')
+    path: path.resolve(__dirname, 'public'),
+    publicPath: '/',
   },
-  devServer: {
-    contentBase: path.resolve(__dirname, 'public'),
-    port: 8564,
-    open: true
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+    },
   },
   module: {
     rules: [
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader']
+        use: ['style-loader', 'css-loader'],
       },
       {
-        test: /\.(png|jpg|jpeg|gif|svg)$/,
+        test: /\.(png|jpg|jpeg|gif)$/i,
         use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[name].[ext]',
-              outputPath: 'images/'
-            }
-          },
+          'file-loader', // Use file-loader for basic image handling
           {
             loader: 'image-webpack-loader',
             options: {
               mozjpeg: {
                 progressive: true,
-                quality: 65
+                quality: 65,
               },
-              optipng: {
-                enabled: true,
-              },
-              pngquant: {
-                quality: [0.65, 0.90],
-                speed: 4
-              },
-              gifsicle: {
-                interlaced: false,
-              },
-              webp: {
-                quality: 75
-              }
-            }
-          }
-        ]
-      }
-    ]
+            },
+          },
+        ],
+      },
+    ],
+  },
+  devServer: {
+    contentBase: './public',
+    compress: true,
+    port: 8564,
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: './public/index.html'
-    }),
-    new CleanWebpackPlugin()
+    new HtmlWebpackPlugin({ title: 'Task 3' }),
+    new CleanWebpackPlugin(),
   ],
-  devtool: 'inline-source-map',
-  optimization: {
-    splitChunks: {
-      chunks: 'all'
-    }
-  }
 };
