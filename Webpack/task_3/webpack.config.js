@@ -29,7 +29,7 @@ module.exports = {
       {
         test: /\.(png|jpg|jpeg|gif)$/i,
         use: [
-          'file-loader', // Use file-loader for basic image handling
+          'file-loader',
           {
             loader: 'image-webpack-loader',
             options: {
@@ -44,9 +44,12 @@ module.exports = {
     ],
   },
   devServer: {
-    contentBase: './public',
+    static: {
+      directory: path.resolve(__dirname, 'public'),
+    },
     compress: true,
     port: 8564,
+    open: true,
   },
   plugins: [
     new HtmlWebpackPlugin({ title: 'Task 3' }),
