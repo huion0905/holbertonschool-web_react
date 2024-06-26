@@ -1,8 +1,9 @@
 .App {
-  text-align: center;
+  text-align: left;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  margin: 0 20px;
 }
 
 .App-logo {
@@ -14,9 +15,8 @@
 .App-header {
   background-color: white;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   padding: 20px;
   border-bottom: 2px solid #d3d3d3;
 }
@@ -24,18 +24,21 @@
 .App-body {
   flex: 1;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   background-color: white;
   padding: 20px;
-  margin-top: 40px;
 }
 
 .App-footer {
   background-color: white;
   padding: 20px;
-  text-align: center;
+  text-align: left;
   border-top: 2px solid #d3d3d3;
+}
+
+.App-header img {
+  margin-right: 20px;
 }
 
 .App h1 {
