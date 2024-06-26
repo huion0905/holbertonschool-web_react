@@ -1,20 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <title>React App</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-  </body>
-</html>
+.App {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0 20px;
+}
+
+.App-logo {
+  height: 100px;
+  pointer-events: none;
+  margin: 20px 0;
+}
+
+.App-header {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 20px;
+  border-bottom: 2px solid #d3d3d3;
+}
+
+.App-body {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: white;
+  padding: 20px;
+}
+
+.App-footer {
+  background-color: white;
+  padding: 20px;
+  text-align: left;
+  border-top: 2px solid #d3d3d3;
+}
+
+.App-header img {
+  margin-right: 20px;
+}
+
+.App h1 {
+  color: #d9534f;
+}
+
+.App p {
+  color: #000000;
+}
