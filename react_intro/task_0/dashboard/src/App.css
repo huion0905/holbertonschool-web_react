@@ -6,12 +6,13 @@
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 100px;
   pointer-events: none;
+  margin: 20px 0;
 }
 
 .App-header {
-  background-color: #ffffff;
+  background-color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -27,10 +28,11 @@
   align-items: center;
   background-color: white;
   padding: 20px;
+  margin-top: 40px;
 }
 
 .App-footer {
-  background-color: #ffffff;
+  background-color: white;
   padding: 20px;
   text-align: center;
   border-top: 2px solid #d3d3d3;
