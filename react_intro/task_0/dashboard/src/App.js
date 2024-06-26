@@ -9,9 +9,9 @@ function App() {
         <img src={holbertonLogo} className="App-logo" alt="logo" />
         <h1>School dashboard</h1>
       </header>
-      <body className="App-body">
+      <main className="App-body">
         <p>Login to access the full dashboard</p>
-      </body>
+      </main>
       <footer className="App-footer">
         <p>Copyright 2024 - holberton School</p>
       </footer>
