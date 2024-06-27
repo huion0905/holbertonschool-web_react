@@ -1,4 +1,3 @@
-// task_2/dashboard/src/utils.js
 export function getFullYear() {
   return new Date().getFullYear();
 }
